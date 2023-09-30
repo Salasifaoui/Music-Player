@@ -25,14 +25,14 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
       }}
-      // tabBar={(props) =>
-      //   // @ts-ignore
-      //   <View>
-      //     <Player track={tracks[0]} />
-      //     <BottomTabBar {...props} />
+      tabBar={(props) =>
+        // @ts-ignore
+        <View>
+          <Player track={tracks[0]} />
+          <BottomTabBar {...props} />
           
-      //   </View>
-      // }
+        </View>
+      }
       >
       <Tabs.Screen
         name="index"

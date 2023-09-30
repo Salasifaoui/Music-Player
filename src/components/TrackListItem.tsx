@@ -1,7 +1,9 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image,Pressable } from "react-native";
 import React, { useState } from "react";
 import { Track } from "../types";
 import { FontAwesome } from "@expo/vector-icons";
+import { usePlayerContext } from "../providers/PlayerProvider";
+
 
 type TrackListItemProps = {
   track: Track;
@@ -15,12 +17,14 @@ export default function TrackListItem({
   color = '#D1543E'
 }: TrackListItemProps) {
   const [favorites, setFavorites] = useState(false);
+  const image = track.album.images[0];
+  const {setTrack} = usePlayerContext()
   return (
     
-    <View style={[styles.container,{backgroundColor: color}]} >
+    <Pressable onPress={() => setTrack(track)} style={[styles.container,{backgroundColor: color}]} >
       <View style={{ flexDirection: "row", maxWidth: '50%' }}>
         <Image
-          source={{ uri: track.album.images[0]?.url }}
+          source={{ uri: image.url }}
           style={styles.image}
         />
         <View>
@@ -40,7 +44,7 @@ export default function TrackListItem({
           <FontAwesome name="play" size={24} color="white" />
         </View>
       )}
-    </View>
+    </Pressable>
   );
 }
 

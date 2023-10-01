@@ -13,7 +13,7 @@ const PlayerContext = createContext<PlayerContextProps>({
 
 export default function PlayerProvider({children} : PropsWithChildren) {
     const [track, setTrack] = useState<Track>()
-    console.log(track)
+
   return (
     <PlayerContext.Provider value={{track,setTrack}}>
       {children}

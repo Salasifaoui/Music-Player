@@ -28,7 +28,7 @@ export default function TabLayout() {
       tabBar={(props) =>
         // @ts-ignore
         <View>
-          <Player track={tracks[0]} />
+          <Player/>
           <BottomTabBar {...props} />
           
         </View>
